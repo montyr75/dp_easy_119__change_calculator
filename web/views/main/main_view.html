@@ -1,0 +1,70 @@
+<polymer-element name="main-view">
+  <template>
+    <link rel="stylesheet" href="main_view.css" />
+
+    <h1>Change Calculator</h1>
+
+    <div id="wrapper">
+      <div class="box-container">
+        <h4>Convert to Coins</h4>
+
+        <form class="form-inline" on-submit="{{submit}}">
+          <fieldset>
+            <input type="text" value="{{dollars | asNum}}" autocomplete="off">
+            <button class="btn" on-click="{{convertDollars}}">Convert Dollars</button>
+          </fieldset>
+        </form>
+
+        <form class="form-inline" on-submit="{{submit}}">
+          <fieldset>
+            <input type="text" value="{{gold | asNum}}" autocomplete="off">
+            <button class="btn" on-click="{{convertGold}}">Convert Gold</button>
+          </fieldset>
+        </form>
+
+        <p class="label {{convertMessageState}}">{{convertMessage}}</p>
+
+        <hr>
+
+        <h4>{{convertOutputHeader}}</h4>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Unit</th>
+              <th>Qty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template repeat="{{unit in outputUnits}}">
+              <tr>
+                <td>{{unit.name}}</td>
+                <td class="numeric-data-cell">{{unit.qty}}</td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box-container">
+        <h4>Total Value (Gold)</h4>
+
+        <form on-submit="{{submit}}">
+          <template repeat="{{unit in unitsDnD}}">
+            <fieldset>
+              <input type="text" value="{{unit.qty | asInteger}}" autocomplete="off"> {{unit.name}}
+            </fieldset>
+          </template>
+
+          <p><strong>Total: </strong>{{outputTotal}}</p>
+
+          <p class="label {{totalMessageState}}">{{totalMessage}}</p><br><br>
+
+          <button class="btn" on-click="{{calculateTotal}}">Calculate Total</button>
+        </form>
+     </div>
+    </div>
+  </template>
+
+  <script type="application/dart" src="main_view.dart"></script>
+</polymer-element>
