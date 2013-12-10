@@ -54,10 +54,8 @@ class MainView extends PolymerElement {
     new CurrencyUnit("cp", 1, 0.01)
   ]);
 
-  // non-visual initialization can be done here
   MainView.created() : super.created();
 
-  // other initialization can be done here
   @override void enteredView() {
     super.enteredView();
     print("MainView::enteredView()");
