@@ -103,8 +103,7 @@ class MainView extends PolymerElement {
 
     // send output to web page
     convertOutputHeader = headerText;
-    outputUnits.clear();
-    outputUnits.addAll(units);
+    outputUnits = toObservable(new List<CurrencyUnit>.from(units));
   }
 
   void calculateTotal(Event event, var detail, Element target) {

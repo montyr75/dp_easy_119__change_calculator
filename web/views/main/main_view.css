@@ -16,6 +16,7 @@
   padding: 10px;
   margin-right: 10px;
 }
+
 .btn {
   cursor: default !important;
 }
@@ -24,6 +25,7 @@ input {
   width: 60px;
   text-align: right;
   margin: 0;
+  padding: 0 2px 0 2px;
 }
 
 .numeric-data-cell {

@@ -11,14 +11,14 @@
         <form class="form-inline" on-submit="{{submit}}">
           <fieldset>
             <input type="text" value="{{dollars | asNum}}" autocomplete="off">
-            <button class="btn" on-click="{{convertDollars}}">Convert Dollars</button>
+            <button class="btn btn-default" on-click="{{convertDollars}}">Convert Dollars</button>
           </fieldset>
         </form>
 
         <form class="form-inline" on-submit="{{submit}}">
           <fieldset>
             <input type="text" value="{{gold | asNum}}" autocomplete="off">
-            <button class="btn" on-click="{{convertGold}}">Convert Gold</button>
+            <button class="btn btn-default" on-click="{{convertGold}}">Convert Gold</button>
           </fieldset>
         </form>
 
@@ -60,7 +60,7 @@
 
           <p class="label {{totalMessageState}}">{{totalMessage}}</p><br><br>
 
-          <button class="btn" on-click="{{calculateTotal}}">Calculate Total</button>
+          <button class="btn btn-default" on-click="{{calculateTotal}}">Calculate Total</button>
         </form>
      </div>
     </div>
