@@ -3,6 +3,9 @@
  * money (such as 15.47) and calculates the minimum number of coins required to equal it.
  */
 
+// TODO: Bug-- "Convert Gold" calculation updates unit qty values, but this is not reflected in the
+// "Total Value (Gold)" panel...and probably vice versa.
+
 library main_view;
 
 import 'dart:html';
@@ -26,7 +29,7 @@ class MainView extends PolymerElement {
   @observable num dollars;
   @observable num gold;
   @observable String convertMessage = DEFAULT_MSG;
-  @observable List<CurrencyUnit> outputUnits = toObservable([]);
+  @observable List<CurrencyUnit> outputUnits;
   @observable String totalMessage = DEFAULT_MSG;
   @observable String outputTotal = "0.00 gp";
   @observable String convertMessageState = DEFAULT_MSG_STATE;
@@ -37,7 +40,7 @@ class MainView extends PolymerElement {
   final Transformer asNum = new StringToNum();
 
   // list of USD currency units
-  @observable final List<CurrencyUnit> unitsUSD = toObservable([
+  final List<CurrencyUnit> unitsUSD = toObservable([
     //new CurrencyUnit("dollar", 100, 1),
     new CurrencyUnit("quarter", 25, 0.25),
     new CurrencyUnit("dime", 10, 0.1),
@@ -46,7 +49,7 @@ class MainView extends PolymerElement {
   ]);
 
   // list of D&D currency units (except electrum, as it's rarely used)
-  @observable final List<CurrencyUnit> unitsDnD = toObservable([
+  final List<CurrencyUnit> unitsDnD = toObservable([
     new CurrencyUnit("pp", 1000, 10),
     new CurrencyUnit("gp", 100, 1),
     //new CurrencyUnit("ep", 50, 0.5),
