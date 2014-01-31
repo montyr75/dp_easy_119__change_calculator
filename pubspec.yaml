@@ -1,4 +1,4 @@
-name: Polymer App
+name: change_calculator
 description: A Polymer Dart application.
 dependencies:
     polymer: any
